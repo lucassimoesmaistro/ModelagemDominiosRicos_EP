@@ -18,6 +18,8 @@ namespace NerdStore.Catalogo.Domain
         public Categoria Categoria { get; private set; }
         public Dimensoes Dimensoes { get; set; }
 
+        protected Produto() {  }
+
         public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriaId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             CategoriaId = categoriaId;
@@ -27,6 +29,7 @@ namespace NerdStore.Catalogo.Domain
             Valor = valor;
             DataCadastro = dataCadastro;
             Imagem = imagem;
+            Dimensoes = dimensoes;
 
             Validar();
         }
