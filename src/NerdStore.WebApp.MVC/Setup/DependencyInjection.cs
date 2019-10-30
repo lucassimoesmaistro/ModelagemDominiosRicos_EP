@@ -4,8 +4,12 @@ using NerdStore.Catalogo.Application.Services;
 using NerdStore.Catalogo.Data;
 using NerdStore.Catalogo.Data.Repository;
 using NerdStore.Catalogo.Domain;
+using NerdStore.Catalogo.Domain.Events;
 using NerdStore.Core.Bus;
 using NerdStore.Vendas.Application.Commands;
+using NerdStore.Vendas.Data;
+using NerdStore.Vendas.Data.Repository;
+using NerdStore.Vendas.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +37,14 @@ namespace NerdStore.WebApp.MVC.Setup
             services.AddScoped<IEstoqueService, EstoqueService>();
             services.AddScoped<CatalogoContext>();
 
-            //services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvent>, ProdutoEventHandler>();
+            services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvent>, ProdutoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoIniciadoEvent>, ProdutoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoProcessamentoCanceladoEvent>, ProdutoEventHandler>();
 
             // Vendas
-            //services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
             //services.AddScoped<IPedidoQueries, PedidoQueries>();
-            //services.AddScoped<VendasContext>();
+            services.AddScoped<VendasContext>();
 
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
             //services.AddScoped<IRequestHandler<AtualizarItemPedidoCommand, bool>, PedidoCommandHandler>();

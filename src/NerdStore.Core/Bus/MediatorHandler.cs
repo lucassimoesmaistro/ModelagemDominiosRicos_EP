@@ -23,5 +23,11 @@ namespace NerdStore.Core.Bus
         {
             await _mediator.Publish(evento);
         }
+
+
+        public async Task<bool> EnviarComando<T>(T comando) where T : Command
+        {
+            return await _mediator.Send(comando);
+        }
     }
 }
