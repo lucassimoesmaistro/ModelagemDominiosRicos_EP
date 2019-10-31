@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NerdStore.Core.DomainObjects
+namespace NerdStore.Core.Messages.CommonMessages.DomainEvents
 {
     public abstract class DomainEvent : Event//, INotification
     {
