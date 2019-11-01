@@ -8,6 +8,7 @@ using NerdStore.Catalogo.Domain.Events;
 using NerdStore.Core.Communication.Mediator;
 using NerdStore.Core.Messages.CommonMessages.Notifications;
 using NerdStore.Vendas.Application.Commands;
+using NerdStore.Vendas.Application.Events;
 using NerdStore.Vendas.Data;
 using NerdStore.Vendas.Data.Repository;
 using NerdStore.Vendas.Domain;
@@ -52,7 +53,9 @@ namespace NerdStore.WebApp.MVC.Setup
             //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoCommand, bool>, PedidoCommandHandler>();
             //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoEstornarEstoqueCommand, bool>, PedidoCommandHandler>();
 
-            //services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoAtualizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoItemAdicionadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoEstoqueRejeitadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoPagamentoRealizadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoPagamentoRecusadoEvent>, PedidoEventHandler>();
