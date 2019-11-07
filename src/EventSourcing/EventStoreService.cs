@@ -3,6 +3,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace EventSourcing
 {
+    //docker pull eventstore/eventstore
+    //docker run --name eventstore-node -it -p 2113:2113 -p 1113:1113 eventstore/eventstore
+    //docker run -ti eventstore/eventstore
     public class EventStoreService : IEventStoreService
     {
         private readonly IEventStoreConnection _connection;
